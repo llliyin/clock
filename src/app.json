@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/mood/main",
     "pages/index/main",
     "pages/logs/main",
     "pages/counter/main"
@@ -17,6 +18,11 @@
     "borderStyle": "white",
 
     "list": [{
+      "text": "心晴",
+      "pagePath": "pages/mood/main",
+      "iconPath": "static/images/fruit.png",
+      "selectedIconPath": "static/images/fruit.png"
+    },{
       "text": "首页",
       "pagePath": "pages/index/main",
       "iconPath": "static/tabs/home.png",
