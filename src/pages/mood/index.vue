@@ -1,18 +1,17 @@
 <template>
-  <div>
+  <div class="indexContainer">
     <view class="userinfo">
     <view class="userinfo-avatar">
     <open-data type="userAvatarUrl"></open-data>
     </view>
     <open-data type="userNickName"></open-data>
     </view>
-    <i-panel hide-border=“true”>
-    <view style="padding: 15px;">今天天气不错，你的心情呢</view>
-    </i-panel>
-    <i-panel hide-border=“true”>
-    <view style="padding: 15px;">    </view>
-    </i-panel>
-    <i-panel title="请选择你的心情">
+    <div class="userinfo2">
+     <p>
+       新一天，新心情
+     </p>
+    </div>
+    <i-panel title="今天天气不错，你的心情是什么样子的呢">
     <i-grid class="no-border">
     <i-grid-item i-class="no-border">
         <i-grid-icon>
@@ -43,25 +42,25 @@
       <i-panel hide-border=“true” i-class="no-border">
     <view style="padding: 10px;"> </view>
     </i-panel>
- <i-panel hide-border=“true”>
-    <view style="padding: 15px;">请选择心情百分比</view>
-  </i-panel>
+
+    <view class="percentage" style="padding: 10px">
+      <p calss="word">
+        请选择心情程度百分比
+      </p>
+    </view>
+
     <i-panel hide-border=“true”>
     <view style="padding: 8px;"> </view>
     </i-panel>
-   <i-card title="心晴进度" thumb="/static/images/noexPression.png">
+   <i-card title="心晴进度"  thumb ="/static/images/noexPression.png" >
     <view slot="content"> 
     <i-progress percent="25" stroke-width:30px>
     </i-progress>
     </view>
     <view slot="footer">  </view>
    </i-card>
-   <i-row>
-    <i-col span="8" i-class="col-class">shrm</i-col>
-    <i-col span="8" i-class="col-class">ugim</i-col>
-    </i-row>  
+  <i-button class="ibutton" type="primary" shape="circle" size="small">增加</i-button>
 
-    
   </div>
 </template>
 
@@ -74,7 +73,9 @@ export default {
       motto: 'Hello miniprograme',
       userInfo: {
         nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
+        avatarUrl: 'http://mpvue.com/assets/logo.png',
+
+       
       }
     }
   },
@@ -108,6 +109,20 @@ export default {
 div >>> .no-border {
   border-width: 0pt;
 }
+.userinfo2 {
+position: relative;
+width: 750rpx;
+height: 100rpx;
+color: #666;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 10rpx;
+}
+.ibutton{
+  margin: 50rpx;
+  color: antiquewhite;
+}
 .userinfo {
 position: relative;
 width: 750rpx;
@@ -116,6 +131,28 @@ color: #666;
 display: flex;
 flex-direction: column;
 align-items: center;
+}
+.percentage{
+  text-align: center;
+  color: #666;
+}
+.start{
+position: relative;
+width: 280rpx;
+height: 80rpx;
+border: 1rpx solid #eeeeee;
+font-size: 24rpx;
+line-height: 80rpx;
+text-align: center;
+margin: 50rpx 0; 
+}
+.indexContainer{
+  display: flex;
+  flex-direction: column;
+}
+.word{
+  font-size: 40rpx;
+  color: #666;
 }
  
 .userinfo-avatar {

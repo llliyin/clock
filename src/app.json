@@ -8,7 +8,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#90EE90",
+    "navigationBarBackgroundColor": "#FAEBD7",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
@@ -19,8 +19,8 @@
     "borderStyle": "white",
 
     "list": [{
-      "text": "心晴",
-      "pagePath": "pages/mood/main",
+      "text": "首页",
+      "pagePath": "pages/home/main",
       "iconPath": "static/images/fruit.png",
       "selectedIconPath": "static/images/fruit.png"
     },{

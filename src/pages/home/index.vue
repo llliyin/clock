@@ -1,8 +1,8 @@
 <template>
   <div class="indexContainer">
     <img class="indeximg"  :src="userInfo.avatarUrl" alt="">
-    <Button class="btn" open-type="getUserInfo" @getuserinfo="getUserInfo">开始</Button>
-    
+    <!-- <Button class="btn" open-type="getUserInfo" @getuserinfo="getUserInfo">开始</Button> -->
+     <Button class="btn"  @tap="change">开始</Button>
     <p class="userName">hello  {{userInfo.nickName}}</p>
     <div class="start">
       <p>开始专属于你的心情记录</p>
@@ -41,14 +41,20 @@ beforeMount(){
        }
      })
     },
-    getUserInfo (data) {
-      if(data.mp.detail.rawData) {
-        this.handleGetUserInfo();
-        console.log("经过了打印")
-      }
-    }
+  //   getUserInfo (data) {
+  //     if(data.mp.detail.rawData) {
+  //       this.handleGetUserInfo();
+  //       console.log("经过了打印")
+  //     }
+  //   }
+  // },
+  change () {
+      wx.navigateTo({
+        url:('/pages/mood/main')
+      })
+      console.log('dianji')
+  }
   },
-
   created () {
     // let app = getApp()
   }
@@ -57,13 +63,14 @@ beforeMount(){
 
 <style scoped>
  page {
-  background: aquamarine;
+  background-image: url('http://img2.imgtn.bdimg.com/it/u=3316664839,999263507&fm=26&gp=0.jpg')
   
 }
 .indexContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center; 
+  background-image: url('http://img2.imgtn.bdimg.com/it/u=3316664839,999263507&fm=26&gp=0.jpg') 
    /* 使样式居中 */
 }
 .indeximg {
@@ -78,7 +85,7 @@ font-size: 40rpx;
 margin: 50rpx 0;
 }
 .start{
-width: 220rpx;
+width: 280rpx;
 height: 80rpx;
 border: 1rpx solid #eeeeee;
 font-size: 24rpx;
@@ -89,8 +96,8 @@ margin: 50rpx 0;
 .btn{
 width: 150rpx;
 height: 150rpx;
-border-radius:150rpx;
-margin :50rpx;
+border-radius:200rpx;
+margin :20rpx;
 line-height:150rpx;
 text-align:center;
 font-size:28rpx;
