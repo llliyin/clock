@@ -52,12 +52,12 @@
     <i-panel hide-border=“true”>
     <view style="padding: 8px;"> </view>
     </i-panel>
-   <i-card title="心晴进度"  thumb ="/static/images/noexPression.png" >
+     <i-card title="心晴进度"  :thumb ="url" >
     <view slot="content"> 
     <i-progress percent="25" stroke-width:30px>
     </i-progress>
     </view>
-    <view slot="footer">  </view>
+    <view slot="footer">随便写点啥</view>
    </i-card>
   <i-button class="ibutton" type="primary" shape="circle" size="small">增加</i-button>
 
@@ -71,11 +71,11 @@ export default {
   data () {
     return {
       motto: 'Hello miniprograme',
+      url:'/static/images/noexPression.png',
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png',
-
-       
+        
       }
     }
   },

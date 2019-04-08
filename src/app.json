@@ -24,12 +24,12 @@
       "iconPath": "static/images/fruit.png",
       "selectedIconPath": "static/images/fruit.png"
     },{
-      "text": "首页",
+      "text": "我的心晴日志",
       "pagePath": "pages/index/main",
       "iconPath": "static/tabs/home.png",
       "selectedIconPath": "static/tabs/home-active.png"
     }, {
-      "text": "订单",
+      "text": "我的",
       "pagePath": "pages/logs/main",
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
