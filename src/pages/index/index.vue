@@ -1,9 +1,12 @@
 <template>
   <div @click="clickHandle">
-    <view >
-      <i-card title="心晴进度" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">内容不错</view>
-        <view slot="footer">尾部内容</view>
+    <view v-for="item in mood" :key='item'>
+      <i-card title="心晴进度" extra="额外内容" thumb="/static/images/sad.png">
+       <view slot="content"> 
+       <i-progress percent="20" stroke-width:30px>
+       </i-progress>
+      </view>
+        <view slot="footer">脚本</view>
      </i-card>
     </view>
   </div>
@@ -17,9 +20,9 @@ export default {
     return {
       motto: 'Hello miniprograme',
       userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png',
-        mood:[]
+      nickName: 'mpvue',
+      avatarUrl: 'http://mpvue.com/assets/logo.png',
+      mood:[]
       }
     }
   },
@@ -45,6 +48,14 @@ export default {
 
   created () {
     // let app = getApp()
+    const db = wx.cloud.database({env:'clockdata-3a158b'})
+    db.collection('mymood').get().then(
+      res => {
+        console.log(res.data)
+        this.mood = res.data
+      }
+    )
+
   }
 }
 </script>

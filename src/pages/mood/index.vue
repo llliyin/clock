@@ -37,6 +37,12 @@
         </i-grid-icon>
         <i-grid-label>愤怒</i-grid-label>
     </i-grid-item>
+        <i-grid-item i-class="no-border">
+        <i-grid-icon>
+            <image src="/static/images/like.png" />
+        </i-grid-icon>
+        <i-grid-label>喜欢</i-grid-label>
+    </i-grid-item>
 </i-grid>
     </i-panel>
       <i-panel hide-border=“true” i-class="no-border">
@@ -52,7 +58,7 @@
     <i-panel hide-border=“true”>
     <view style="padding: 8px;"> </view>
     </i-panel>
-     <i-card title="心晴进度"  :thumb ="url" >
+     <i-card title="心晴进度"  extra="日期" :thumb ="url" >
     <view slot="content"> 
     <i-progress percent="25" stroke-width:30px>
     </i-progress>
