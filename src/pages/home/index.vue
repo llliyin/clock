@@ -57,6 +57,7 @@ beforeMount(){
   },
   created () {
     // let app = getApp()
+   
   }
 }
 </script>

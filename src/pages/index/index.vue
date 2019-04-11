@@ -1,12 +1,12 @@
 <template>
   <div @click="clickHandle">
-    <view v-for="item in mood" :key='item'>
-      <i-card title="心晴进度" extra="额外内容" thumb="/static/images/sad.png">
+    <view v-for="item in mood" :key="item">
+      <i-card  title="心晴进度" extra="额外内容" thumb="/static/images/sad.png">
        <view slot="content"> 
        <i-progress percent="20" stroke-width:30px>
        </i-progress>
       </view>
-        <view slot="footer">脚本</view>
+        <view slot="footer">脚本内容</view>
      </i-card>
     </view>
   </div>
@@ -19,10 +19,12 @@ export default {
   data () {
     return {
       motto: 'Hello miniprograme',
+       mood : [],
       userInfo: {
       nickName: 'mpvue',
       avatarUrl: 'http://mpvue.com/assets/logo.png',
-      mood:[]
+      bianliang:['shuzi','jiegou'],
+      
       }
     }
   },
@@ -53,8 +55,12 @@ export default {
       res => {
         console.log(res.data)
         this.mood = res.data
+       
       }
     )
+//      wx.cloud.callFunction({ name: 'mymood' }).then(
+//      res => {console.log(res)}
+// )
 
   }
 }
