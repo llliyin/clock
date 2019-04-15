@@ -57,7 +57,21 @@ beforeMount(){
   },
   created () {
     // let app = getApp()
-   
+      wx.cloud.callFunction ({name:'mymood'}).then (res => {console.log (res)})
+      const db = wx.cloud.database({env:'clockdata-3a158b'})
+      db.collection('mymood').add({
+        data : {
+          date: '2019.4.15',
+          mood:'很满足',
+          note:'今天上学到了很多东西',
+          persentage:"30",
+          picture:'cloud://clockdata-3a158b.636c-clockdata-3a158b/angry.png'
+
+        },success(res) {
+          console.log(res)
+        }
+      })
+
   }
 }
 </script>

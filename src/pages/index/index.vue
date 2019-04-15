@@ -50,14 +50,14 @@ export default {
 
   created () {
     // let app = getApp()
-    const db = wx.cloud.database({env:'clockdata-3a158b'})
+  const db = wx.cloud.database({env:'clockdata-3a158b'})
     db.collection('mymood').get().then(
       res => {
         console.log(res.data)
         this.mood = res.data
        
       }
-    )
+    )  
 //      wx.cloud.callFunction({ name: 'mymood' }).then(
 //      res => {console.log(res)}
 // )

@@ -15,19 +15,19 @@
     <i-grid class="no-border">
     <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image src="/static/images/happy.png" />
+            <image @tap="chooseHappy"  src="/static/images/happy.png" />
         </i-grid-icon>
         <i-grid-label>开心</i-grid-label>
     </i-grid-item>
     <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image src="/static/images/noexPression.png" />
+            <image @tap="choosenoexPression" src="/static/images/noexPression.png" />
         </i-grid-icon>
         <i-grid-label>一般般</i-grid-label>
     </i-grid-item>
     <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image src="/static/images/sad.png" />
+            <image @tap="choosesad" src="/static/images/sad.png" />
         </i-grid-icon>
         <i-grid-label>伤心</i-grid-label>
     </i-grid-item >
@@ -63,7 +63,7 @@
     <i-progress percent="25" stroke-width:30px>
     </i-progress>
     </view>
-    <view slot="footer">随便写点啥</view>
+    <view slot="footer"> <input @KeyInput="noteInput" placeholder="请记录心情事件"  /></view>
    </i-card>
   <i-button class="ibutton" type="primary" shape="circle" size="small">增加</i-button>
 
@@ -76,6 +76,11 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      date:'0',
+      mood: '0',
+      note :'0',
+      persentage :'0',
+      picture:'0',
       motto: 'Hello miniprograme',
       url:'/static/images/noexPression.png',
       userInfo: {
@@ -102,6 +107,27 @@ export default {
     clickHandle (ev) {
       console.log('clickHandle:', ev)
       // throw {message: 'custom test'}
+    },
+    chooseHappy() {
+      this.url="/static/images/happy.png"
+    },
+    choosenoexPression() {
+      this.url="/static/images/noexPression.png"
+    },
+    chooseSad() {
+      this.url="/static/images/sad.png"
+    },
+    chooseHappy() {
+      this.url="/static/images/happy.png"
+    },
+    chooseHappy() {
+      this.url="/static/images/happy.png"
+    },
+    noteInput (e) {
+        this.setData({
+        note: e.detail.value
+      
+    })
     }
   },
 

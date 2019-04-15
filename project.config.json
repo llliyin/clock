@@ -7,12 +7,12 @@
 		"minified": true,
 		"newFeature": true
 	},
+	"cloudfunctionRoot" : "/static/funtions/",
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wx1dd65e9ed13515e7",
 	"projectname": "clock",
 	"libVersion": "2.6.5",
-	"cloudfunctionRoot": "/functions/",
 
 	"condition": {
 		"search": {
