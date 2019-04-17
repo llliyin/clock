@@ -1,7 +1,7 @@
 <template>
   <div class="indexContainer">
     <view class="userinfo">
-    <view class="userinfo-avatar">
+    <view  class="userinfo-avatar">
     <open-data type="userAvatarUrl"></open-data>
     </view>
     <open-data type="userNickName"></open-data>
@@ -33,13 +33,13 @@
     </i-grid-item >
     <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image src="/static/images/angry.png" />
+            <image @tap="chooseangry" src="/static/images/angry.png" />
         </i-grid-icon>
         <i-grid-label>愤怒</i-grid-label>
     </i-grid-item>
         <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image src="/static/images/like.png" />
+            <image @tap="chooselike" src="/static/images/like.png" />
         </i-grid-icon>
         <i-grid-label>喜欢</i-grid-label>
     </i-grid-item>
@@ -60,12 +60,15 @@
     </i-panel>
      <i-card title="心晴进度"  extra="日期" :thumb ="url" >
     <view slot="content"> 
-    <i-progress percent="25" stroke-width:30px>
+    <i-progress :percent="persentage"  stroke-width:30px>
     </i-progress>
+    <p>{{note}}</p>
     </view>
-    <view slot="footer"> <input @KeyInput="noteInput" placeholder="请记录心情事件"  /></view>
+    <view slot="footer"> <input @input="noteInput" placeholder="请记录心情事件"  /></view>
    </i-card>
-  <i-button class="ibutton" type="primary" shape="circle" size="small">增加</i-button>
+   <i-button class="ibutton" @tap="addPersentage" type="primary" shape="circle" size="small">增加</i-button>
+  <i-button class="ibutton" @tap="printf" type="primary" shape="circle" size="small">提交</i-button>
+  
 
   </div>
 </template>
@@ -76,11 +79,11 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      date:'0',
-      mood: '0',
-      note :'0',
-      persentage :'0',
-      picture:'0',
+      date:'2018',
+      mood: 'bucuo',
+      note :"今天天气不错",
+      persentage :0,
+      picture: 'http://mpvue.com/assets/logo.png',
       motto: 'Hello miniprograme',
       url:'/static/images/noexPression.png',
       userInfo: {
@@ -114,25 +117,39 @@ export default {
     choosenoexPression() {
       this.url="/static/images/noexPression.png"
     },
-    chooseSad() {
+    choosesad() {
       this.url="/static/images/sad.png"
     },
-    chooseHappy() {
-      this.url="/static/images/happy.png"
+    chooseangry() {
+      this.url="/static/images/angry.png"
     },
-    chooseHappy() {
-      this.url="/static/images/happy.png"
+    chooselike() {
+      this.url="/static/images/like.png"
     },
     noteInput (e) {
-        this.setData({
-        note: e.detail.value
+      this.note = e.mp.detail.value
+      //将用户输入的文本传到note的值中
+      // this.setData({
+      // note: e.detail.value
+    // })
+    // console.log(e.mp.detail.value)
+    // console.log (note)
+    },
+    addPersentage(){
+      if(this.persentage==100){
+       this.persentage=0
+      }
+      this.persentage = this.persentage+10
       
-    })
-    }
+    },
+    // printf () {
+    //   console.log(note)
+    // }
   },
 
   created () {
     // let app = getApp()
+    
   }
 }
 </script>
