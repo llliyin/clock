@@ -21,18 +21,18 @@
     "list": [{
       "text": "首页",
       "pagePath": "pages/home/main",
-      "iconPath": "static/images/fruit.png",
+      "iconPath": "static/images/marcarons.png",
       "selectedIconPath": "static/images/fruit.png"
     },{
       "text": "我的心晴日志",
       "pagePath": "pages/index/main",
-      "iconPath": "static/tabs/home.png",
-      "selectedIconPath": "static/tabs/home-active.png"
+      "iconPath": "static/images/chips.png",
+      "selectedIconPath": "static/images/biscuit.png"
     }, {
       "text": "我的",
       "pagePath": "pages/logs/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
+      "iconPath": "static/images/piza.png",
+      "selectedIconPath": "static/images/strawbarry.png"
     }],
 
     "items": [{

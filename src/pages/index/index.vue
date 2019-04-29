@@ -1,12 +1,12 @@
 <template>
   <div @click="clickHandle">
-    <view v-for="item in mood" :key="item">
-      <i-card  title="心晴进度" extra="额外内容" thumb="/static/images/sad.png">
+    <view v-for="item in mood" :key="item" class="margin">
+      <i-card  title="心晴进度" :extra="item.date" :thumb="item.picture">
        <view slot="content"> 
-       <i-progress percent="20" stroke-width:30px>
+       <i-progress :percent="item.persentage" stroke-width:30px>
        </i-progress>
       </view>
-        <view slot="footer">脚本内容</view>
+        <view slot="footer">{{item.note}}</view>
      </i-card>
     </view>
   </div>
@@ -61,7 +61,7 @@ export default {
 //      wx.cloud.callFunction({ name: 'mymood' }).then(
 //      res => {console.log(res)}
 // )
-
+  
   }
 }
 </script>
@@ -78,6 +78,10 @@ export default {
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
+}
+
+.margin {
+  margin: 30rpx;
 }
 
 .userinfo-nickname {

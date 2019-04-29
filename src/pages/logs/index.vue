@@ -1,18 +1,47 @@
 <template>
   <div>
-      <swiper v-if="imgUrls.length > 0" indidator-dots="imgUrls.length > 1" >
-      <block v-for="(item, index) in imgUrls" :key="index" >
+    <div>
+      <view class="user">
+      <open-data class="userAvatar" type="userAvatarUrl" ></open-data>
+      
+      
+        <open-data type="userNickName" class="userNickName"></open-data>
+     
+      </view>
+    </div>
+    <div >
+      <swiper class="swiper" indicator-dots="true" indicator-color="white" indictor-active-color="green" autoplay="true">
+      
         <swiper-item>
-          <image :src="item" mode="scaleToFill"></image>
+          <image src="/static/images/1.jpg"  class="swiperImage"></image>
         </swiper-item>
-      </block>
+        <swiper-item>
+          <image class="swiperImage" src="/static/images/2.jpg"  ></image>
+        </swiper-item>
+        <swiper-item>
+          <image class="swiperImage" src="/static/images/3.jpg"  ></image>
+        </swiper-item>
+        <swiper-item>
+          <image class="swiperImage" src="/static/images/4.jpg"  ></image>
+        </swiper-item>
+        <swiper-item>
+          <image src="/static/images/6.jpg"  ></image>
+        </swiper-item>
+        <swiper-item>
+          <image class="swiperImage" src="/static/images/7.jpg"  ></image>
+        </swiper-item>
+      
     </swiper>
+    <i-cell-group>
+    <i-cell title="我要提意见" is-link></i-cell>
+    <i-cell title="我希望的新功能" is-link url="../mood/main"></i-cell>
+    <i-cell title="联系作者" is-link url="../mood/main" only-tap-footer></i-cell>
+    <i-cell title="开关">
+        <switch slot="footer" checked />
+    </i-cell>
+</i-cell-group>
+    </div>
 
-    <ul class="container log-list">
-      <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
-        <card :text="(index + 1) + ' . ' + log"></card>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -27,6 +56,7 @@ export default {
 
   data () {
     return {
+      picture:[],
       logs: [],
       imgUrls: [
         'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/newsPicture/05558951-de60-49fb-b674-dd906c8897a6',
@@ -37,25 +67,46 @@ export default {
   },
 
   created () {
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-    }
-    this.logs = logs.map(log => formatTime(new Date(log)))
+    
   }
 }
 </script>
 
 <style>
+.userAvatar{
+overflow:hidden;
+display: block;
+width: 160rpx;
+height: 160rpx;
+margin: 20rpx;
+margin-top: 50rpx;
+border-radius: 50%;
+border: 2px solid #fff;
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
 .log-list {
   display: flex;
   flex-direction: column;
   padding: 40rpx;
 }
-
+.swiper {
+  text-align:center;
+  margin-top: 30rpx;
+}
+.user{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  vertical-align: center;
+  align-items: center;
+  font-size: 35rpx;
+  color: dimgray;
+}
 .log-item {
   margin: 10rpx;
+}
+.swiperImage{
+  width: 80%;
+  height: 100%
 }
 </style>

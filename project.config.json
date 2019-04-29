@@ -2,18 +2,18 @@
 	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": true,
-		"es6": false,
+		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
-	"cloudfunctionRoot" : "/static/funtions/",
+	"cloudfunctionRoot": "static/funtions/",
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wx1dd65e9ed13515e7",
 	"projectname": "clock",
 	"libVersion": "2.6.5",
-
 	"condition": {
 		"search": {
 			"current": -1,

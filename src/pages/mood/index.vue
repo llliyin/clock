@@ -15,7 +15,7 @@
     <i-grid class="no-border">
     <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image @tap="chooseHappy"  src="/static/images/happy.png" />
+            <image @tap="chooseHappy"  src="/static/images/happy1.png" />
         </i-grid-icon>
         <i-grid-label>开心</i-grid-label>
     </i-grid-item>
@@ -62,12 +62,22 @@
     <view slot="content"> 
     <i-progress :percent="persentage"  stroke-width:30px>
     </i-progress>
-    <p>{{note}}</p>
+     
     </view>
-    <view slot="footer"> <input @input="noteInput" placeholder="请记录心情事件"  /></view>
+    <view slot="footer"> <input @input="noteInput" placeholder="请记录心情事件"  />
+  
+    <text class="text">{{note}}</text>
+     
+    
+    </view>
+    
+    
    </i-card>
-   <i-button class="ibutton" @tap="addPersentage" type="primary" shape="circle" size="small">增加</i-button>
-  <i-button class="ibutton" @tap="printf" type="primary" shape="circle" size="small">提交</i-button>
+   <view  class="btn">
+     <button  type="default" @tap="addPersentage" size="mini" plain="true" >增加</button>
+   </view>
+   
+  <i-button class="ibutton" @tap="addData" type="primary" shape="circle" size="small">{{submit}}</i-button>
   
 
   </div>
@@ -79,9 +89,11 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      logs:[ ],
+      submit:"提交",
       date:'2018',
       mood: 'bucuo',
-      note :"今天天气不错",
+      note :"",
       persentage :0,
       picture: 'http://mpvue.com/assets/logo.png',
       motto: 'Hello miniprograme',
@@ -112,7 +124,7 @@ export default {
       // throw {message: 'custom test'}
     },
     chooseHappy() {
-      this.url="/static/images/happy.png"
+      this.url="/static/images/happy1.png"
     },
     choosenoexPression() {
       this.url="/static/images/noexPression.png"
@@ -142,14 +154,35 @@ export default {
       this.persentage = this.persentage+10
       
     },
-    // printf () {
-    //   console.log(note)
-    // }
+    addData () {
+      const db = wx.cloud.database({env:'clockdata-3a158b'})
+      db.collection('mymood').add({
+        data : {
+          date:this.data,
+          mood:this.mood,
+          note:this.note,
+          persentage:this.persentage,
+          picture:this.url
+
+        }
+      })
+      this.submit="提交成功"
+    }
   },
 
   created () {
     // let app = getApp()
-    
+    // let logs
+    // if (mpvuePlatform === 'my') {
+    //   logs = mpvue.getStorageSync({key: 'logs'}).data || []
+    // } else {
+    //   logs = mpvue.getStorageSync('logs') || []
+    // }
+    // this.logs = logs.map(log => formatTime(new Date(log)))
+    //  logs = mpvue.getStorageSync({key: 'logs'}).data || []
+    // let logs
+    // logs = mpvue.getStorageSync({key: 'logs'}).data || []
+    // console.log(logs)
   }
 }
 </script>
@@ -199,11 +232,21 @@ margin: 50rpx 0;
   display: flex;
   flex-direction: column;
 }
+.btn{
+  text-align:center;
+  margin: 30rpx;
+  border-color: #eeeeee
+  
+}
 .word{
   font-size: 40rpx;
   color: #666;
 }
- 
+ .text {
+   margin: 20;
+   font-size: 24rpx;
+   word-spacing: 10rpx;
+ }
 .userinfo-avatar {
 overflow:hidden;
 display: block;
