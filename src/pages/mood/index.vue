@@ -65,9 +65,10 @@
      
     </view>
     <view slot="footer"> <input @input="noteInput" placeholder="请记录心情事件"  />
+  <div class="content">
   
     <text class="text">{{note}}</text>
-     
+     </div>
     
     </view>
     
@@ -91,7 +92,7 @@ export default {
     return {
       logs:[ ],
       submit:"提交",
-      date:'2018',
+      date:'',
       mood: 'bucuo',
       note :"",
       persentage :0,
@@ -155,10 +156,13 @@ export default {
       
     },
     addData () {
+      var myDate = new Date();
+      var time = myDate.toLocaleDateString();     //获取当前日期
       const db = wx.cloud.database({env:'clockdata-3a158b'})
       db.collection('mymood').add({
         data : {
-          date:this.data,
+          
+          date:time,
           mood:this.mood,
           note:this.note,
           persentage:this.persentage,
@@ -190,6 +194,10 @@ export default {
 <style scoped>
 div >>> .no-border {
   border-width: 0pt;
+}
+.content{
+  border:1px gainsboro solid;
+  border-radius: 4px;
 }
 .userinfo2 {
 position: relative;

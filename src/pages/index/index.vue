@@ -6,7 +6,11 @@
        <i-progress :percent="item.persentage" stroke-width:30px>
        </i-progress>
       </view>
-        <view slot="footer">{{item.note}}</view>
+        <view slot="footer">
+          <div class="content">
+           <p> {{item.note}}</p>
+            </div >
+            </view>
      </i-card>
     </view>
   </div>
@@ -78,6 +82,15 @@ export default {
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
+}
+.content{
+  border:1px gainsboro solid;
+  border-radius: 4px;
+  height:100rpx;
+  overflow: hidden;
+  /* text-align: center; */
+  padding:20rpx;
+  text-indent: 2em;
 }
 
 .margin {
