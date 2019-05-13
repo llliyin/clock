@@ -9,6 +9,7 @@
     <div class="start">
       <p>开始专属于你的心情记录</p>
     </div>
+    
   </div>
 </template>
 
@@ -22,8 +23,8 @@ export default {
       userInfo:{},
       motto: 'Hello miniprograme',
         userInfo: { 
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png',
+        nickName: '',
+        avatarUrl: '',
         
       }
     }
@@ -33,21 +34,21 @@ export default {
     card
   },
 beforeMount(){
-      this.handleGetUserInfo(),
-      console.log("jianglai")
+      // this.handleGetUserInfo(),
+      // console.log("jianglai")
     },
   methods: {
-    handleGetUserInfo(){
-     wx.getUserInfo({
-       success : (data)=> {
-         console.log(data);
-         this.userInfo = data.userInfo;
-       },
-       fail : ()=>{
-         console.log('获取失败');
-       }
-     })
-    },
+    // handleGetUserInfo(){
+    //  wx.getUserInfo({
+    //    success : (data)=> {
+    //      console.log(data);
+    //      this.userInfo = data.userInfo;
+    //    },
+    //    fail : ()=>{
+    //      console.log('获取失败');
+    //    }
+    //  })
+    // },
   //   getUserInfo (data) {
   //     if(data.mp.detail.rawData) {
   //       this.handleGetUserInfo();
@@ -124,5 +125,24 @@ line-height:150rpx;
 text-align:center;
 font-size:28rpx;
 font-weight: bold;
+}
+.userinfo-avatar {
+overflow:hidden;
+display: block;
+width: 160rpx;
+height: 160rpx;
+margin: 180rpx 0;
+border-radius: 50%;
+border: 2px solid #fff;
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.userinfo {
+position: relative;
+width: 750rpx;
+height: 320rpx;
+color: #666;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 </style>

@@ -99,11 +99,11 @@ export default {
       picture: 'http://mpvue.com/assets/logo.png',
       motto: 'Hello miniprograme',
       url:'/static/images/noexPression.png',
-     userInfo: { 
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png',
+    //  userInfo: { 
+    //     nickName: '',
+    //     avatarUrl: 'http://mpvue.com/assets/logo.png',
         
-      }
+    //   }
     }
   },
 
