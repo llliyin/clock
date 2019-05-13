@@ -99,7 +99,7 @@ export default {
       picture: 'http://mpvue.com/assets/logo.png',
       motto: 'Hello miniprograme',
       url:'/static/images/noexPression.png',
-      userInfo: {
+     userInfo: { 
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png',
         

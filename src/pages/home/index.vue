@@ -1,9 +1,11 @@
 <template>
   <div class="indexContainer">
-    <img class="indeximg"  :src="userInfo.avatarUrl" alt="">
+    <view  class="userinfo-avatar">
+    <open-data type="userAvatarUrl"></open-data>
+    </view>
     <!-- <Button class="btn" open-type="getUserInfo" @getuserinfo="getUserInfo">开始</Button> -->
      <Button class="btn"  @tap="change">开始</Button>
-    <p class="userName">hello  {{userInfo.nickName}}</p>
+    <p class="userName">hello  {{userInfo.nickName}}</p><span><open-data type="userNickName"></open-data></span>
     <div class="start">
       <p>开始专属于你的心情记录</p>
     </div>
@@ -19,6 +21,11 @@ export default {
       isShow:false,
       userInfo:{},
       motto: 'Hello miniprograme',
+        userInfo: { 
+        nickName: 'mpvue',
+        avatarUrl: 'http://mpvue.com/assets/logo.png',
+        
+      }
     }
   },
 
