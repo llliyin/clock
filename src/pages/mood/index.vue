@@ -64,11 +64,13 @@
     </i-progress>
      
     </view>
-    <view slot="footer"> <input @input="noteInput" placeholder="请记录心情事件"  />
-  <div class="content">
-  
+    <view slot="footer"> 
+    <div class="content">
     <text class="text">{{note}}</text>
      </div>
+      
+      <input @input="noteInput" placeholder="请记录心情事件"  />
+     
     
     </view>
     
@@ -93,7 +95,7 @@ export default {
       logs:[ ],
       submit:"提交",
       date:'',
-      mood: 'bucuo',
+      mood: '',
       note :"",
       persentage :0,
       picture: 'http://mpvue.com/assets/logo.png',
@@ -112,6 +114,28 @@ export default {
   },
 
   methods: {
+     _getRegisterInfo () {
+       this.data="";
+       this.date="";
+      this.mood= "";
+      this.note ="";
+      this.persentage =0;
+      this.submit="提交",
+      this.url="/static/images/happy1.png";
+            let pageNum = this.pageNum;
+            let pageSize = this.pageSize;
+             this.$http.get('https://www.hyltech.com/api/School/getCarbySchoolNum?schoolNum='+this.schoolNum+'').then((res)=>{
+                    console.log('res', res)
+                    this.car = res.data
+                     wx.showToast({
+                        title: '刷新成功',
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }).catch(err=>{
+                    console.log(err)
+                })
+        },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {
@@ -173,20 +197,20 @@ export default {
       this.submit="提交成功"
     }
   },
-
+ // 上拉加载
+    onReachBottom: function () {
+    //执行上拉执行的功能
+    console.log('执行方法')
+    },
+    // 停止下拉刷新
+    async onPullDownRefresh() {
+     this._getRegisterInfo();
+    wx.stopPullDownRefresh();
+    console.log('停止下拉刷新')
+    },
   created () {
     // let app = getApp()
-    // let logs
-    // if (mpvuePlatform === 'my') {
-    //   logs = mpvue.getStorageSync({key: 'logs'}).data || []
-    // } else {
-    //   logs = mpvue.getStorageSync('logs') || []
-    // }
-    // this.logs = logs.map(log => formatTime(new Date(log)))
-    //  logs = mpvue.getStorageSync({key: 'logs'}).data || []
-    // let logs
-    // logs = mpvue.getStorageSync({key: 'logs'}).data || []
-    // console.log(logs)
+  
   }
 }
 </script>

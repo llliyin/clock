@@ -1,5 +1,7 @@
 {
     "navigationBarTitleText": "欢迎来到心晴时钟",
+    "enablePullDownRefresh":true,
+    "backgroundTextStyle":"dark",
     "usingComponents": {
         "i-button": "../../../static/dist/button/index",
         "i-card": "../../../static/dist/card/index",

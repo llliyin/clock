@@ -86,7 +86,8 @@ beforeMount(){
 
 <style scoped>
  page {
-  background-image: url('http://img2.imgtn.bdimg.com/it/u=3316664839,999263507&fm=26&gp=0.jpg')
+  background-image: url('http://img2.imgtn.bdimg.com/it/u=3316664839,999263507&fm=26&gp=0.jpg');
+  background-repeat: no-repeat;
   
 }
 .indexContainer {
@@ -117,11 +118,12 @@ text-align: center;
 margin: 50rpx 0;
 }
 .btn{
-width: 150rpx;
-height: 150rpx;
+width: 200rpx;
+height: 200rpx;
 border-radius:200rpx;
 margin :20rpx;
 line-height:150rpx;
+line-height: 200rpx;
 text-align:center;
 font-size:28rpx;
 font-weight: bold;

@@ -33,12 +33,12 @@
       
     </swiper>
     <i-cell-group>
-    <i-cell title="我要提意见" is-link></i-cell>
-    <i-cell title="我希望的新功能" is-link url="../mood/main"></i-cell>
-    <i-cell title="联系作者" is-link url="../mood/main" only-tap-footer></i-cell>
-    <i-cell title="开关">
+    <i-cell title="我要提意见" is-link url="../suggestions/main"></i-cell>
+    <i-cell title="我希望的新功能" is-link url="../suggestions/main"></i-cell>
+    <i-cell title="联系作者" is-link url="../suggestions/main" ></i-cell>
+    <!-- <i-cell title="开关">
         <switch slot="footer" checked />
-    </i-cell>
+    </i-cell> -->
 </i-cell-group>
     </div>
 
@@ -64,6 +64,10 @@ export default {
         'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/management-school-picture/7683b32e-4e44-4b2f-9c03-c21f34320870'
       ]
     }
+  },
+  methods:{
+    
+
   },
 
   created () {

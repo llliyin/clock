@@ -1,5 +1,6 @@
 <template>
-  <div @click="clickHandle">
+  <div>
+    <div class="my">我的心情日志</div>
     <view v-for="item in mood" :key="item" class="margin">
       <i-card  title="心晴进度" :extra="item.date" :thumb="item.picture">
        <view slot="content"> 
@@ -38,6 +39,16 @@ export default {
   },
 
   methods: {
+     _getRegisterInfo () {
+      const db = wx.cloud.database({env:'clockdata-3a158b'})
+    db.collection('mymood').get().then(
+      res => {
+        console.log(res.data)
+        this.mood = res.data
+       
+      }
+    )  
+        },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {
@@ -46,12 +57,19 @@ export default {
         mpvue.navigateTo({ url })
       }
     },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
-    }
   },
-
+  // 上拉加载
+    onReachBottom: function () {
+    //执行上拉执行的功能
+    console.log('执行方法')
+    },
+    // 停止下拉刷新
+    async onPullDownRefresh() {
+     this._getRegisterInfo();
+    wx.stopPullDownRefresh();
+    console.log('停止下拉刷新')
+    },
+ 
   created () {
     // let app = getApp()
   const db = wx.cloud.database({env:'clockdata-3a158b'})
@@ -86,7 +104,7 @@ export default {
 .content{
   border:1px gainsboro solid;
   border-radius: 4px;
-  height:100rpx;
+  
   overflow: hidden;
   /* text-align: center; */
   padding:20rpx;
@@ -120,6 +138,12 @@ export default {
   display:block;
   content:'';
   clear:both;
+}
+.my{
+  margin: 30px auto;
+  text-align: center;
+  font-size: 30px;
+  color: #aaa;
 }
 .left{
   float:left;
